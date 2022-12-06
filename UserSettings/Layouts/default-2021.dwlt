@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 83
+=======
+  controlID: 88
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +227,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+<<<<<<< HEAD
   controlID: 18
+=======
+  controlID: 89
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +256,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
+<<<<<<< HEAD
   controlID: 19
+=======
+  controlID: 90
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -356,14 +368,20 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\\u4E95\u722A\u3000\u9678\u6597\\GameOfTag"
+  m_LastProjectPath: "C:\\Users\\\u4E95\u722A\u3000\u9678\u6597\\Desktop\\GitTest"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 8a670000
     m_LastClickedID: 26506
     m_ExpandedIDs: 000000008a67000000ca9a3b
+=======
+    m_SelectedIDs: 0cb80000
+    m_LastClickedID: 47116
+    m_ExpandedIDs: 000000000cb8000000ca9a3b
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -523,7 +541,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 32fbffff
+=======
+      m_ExpandedIDs: e6bbffff
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -539,7 +561,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -773,9 +795,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0.6941042, y: -0.95451355, z: 0.029047012}
     speed: 2
     m_Value: {x: 0.6941042, y: -0.95451355, z: 0.029047012}
+=======
+    m_Target: {x: -8.884845, y: -3.5057764, z: -14.681537}
+    speed: 2
+    m_Value: {x: -8.884845, y: -3.5057764, z: -14.681537}
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -822,9 +850,15 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.0940234, y: 0.89849627, z: -0.23595257, w: -0.35803667}
     speed: 2
     m_Value: {x: -0.09348625, y: 0.8988493, z: -0.2346046, w: -0.35817733}
+=======
+    m_Target: {x: -0.049477376, y: 0.94926775, z: -0.24320675, w: -0.1931169}
+    speed: 2
+    m_Value: {x: -0.049187623, y: 0.94963104, z: -0.24178246, w: -0.19319081}
+>>>>>>> 0e1f6d103b75b7ac763faf167d683a648c47c06d
   m_Size:
     m_Target: 10
     speed: 2
@@ -970,7 +1004,7 @@ MonoBehaviour:
     x: 0
     y: 452
     width: 1019.6667
-    height: 227.00003
+    height: 226.99997
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
