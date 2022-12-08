@@ -5,10 +5,12 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public float Speed;
+    public Camera camera;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -16,7 +18,8 @@ public class Move : MonoBehaviour
     {
         var Horizontal = Input.GetAxis("Horizontal");
         var Vertical = Input.GetAxis("Vertical");
-        Vector3 velocity = new Vector3(Horizontal * Time.deltaTime, 0, Vertical * Time.deltaTime);
-        transform.position = transform.position + velocity * Speed;
+        rb.AddForce(new Vector3(Horizontal * Speed, 0, Vertical * Speed));
+        //Vector3 velocity = new Vector3(Horizontal * Time.deltaTime, 0, Vertical * Time.deltaTime);
+        //transform.position = transform.position + velocity * Speed;
     }
 }
