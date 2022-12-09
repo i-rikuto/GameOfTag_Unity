@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class JointCreate : MonoBehaviour
 {
-    
+    public float power;
+    Rigidbody rb;
     public GameObject JointObject,JointPoint;
     public float JointSize;
     List<GameObject> J;
@@ -13,24 +14,19 @@ public class JointCreate : MonoBehaviour
     [SerializeField]
     private LineRenderer line = null;
 
-    [SerializeField]
-    private Transform pivot = null;
+    
     void Start()
     {
         J = new List<GameObject>();
-        
+        rb = GetComponent<Rigidbody>();
         //J[J.Count - 1].GetComponent<HingeJoint>().connectedBody = gameObject.GetComponent<Rigidbody>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (change)
-        {
-            Conect();
-            change = false;
-        }
+        
         if(J.Count == 0) { return; }
         this.line.SetPosition(0,gameObject.transform.position);
 
@@ -42,8 +38,10 @@ public class JointCreate : MonoBehaviour
         //Vector3 vec = (JointPoint.transform.position - transform.position).normalized;
     }
 
-    public void Conect()
+    public void Conect_Clear()
     {
+        rb.AddForce(new Vector3(0, power, 0), ForceMode.Impulse);
+        Destroy(GetComponent<HingeJoint>());
         line.positionCount = 0;
         for (int k = 0;k < J.Count; k++)
         {
@@ -51,33 +49,39 @@ public class JointCreate : MonoBehaviour
         }
 
         J.Clear();
-        var Distance = Vector3.Distance(transform.position, JointPoint.transform.position);
+    }
+    public void Conect(GameObject J_Point)
+    {
+        Conect_Clear();
+        var Distance = Vector3.Distance(transform.position, J_Point.transform.position);
         var JointCount = (int)(Distance / JointSize);
 
-        Debug.Log(JointCount);
+        //Debug.Log(JointCount);
 
         Distance = 1f;
         var Minus = 1f / JointCount;
         var First = false;
-        Debug.Log(Minus);
-        Debug.Log(Distance);
+        //Debug.Log(Minus);
+        //Debug.Log(Distance);
         do
         {
             if (First)
             {
-                J.Add(Instantiate(JointObject, Vector3.Lerp(JointPoint.transform.position, transform.position, Distance), transform.rotation));
+                J.Add(Instantiate(JointObject, Vector3.Lerp(J_Point.transform.position, transform.position, Distance), transform.rotation));
             }
             First = true;
             Distance -= Minus;
-            Debug.Log(Distance);
+            //Debug.Log(Distance);
         } while (Distance > 0);
-        gameObject.AddComponent<HingeJoint>().connectedBody = J[0].GetComponent<Rigidbody>();
-        for (int i = 0; i < J.Count - 1; i++)
+        if (J.Count > 0)
         {
-            J[i].GetComponent<HingeJoint>().connectedBody = J[i + 1].GetComponent<Rigidbody>();
+            gameObject.AddComponent<HingeJoint>().connectedBody = J[0].GetComponent<Rigidbody>();
+            for (int i = 0; i < J.Count - 1; i++)
+            {
+                J[i].GetComponent<HingeJoint>().connectedBody = J[i + 1].GetComponent<Rigidbody>();
+            }
+            J[J.Count - 1].GetComponent<HingeJoint>().connectedBody = J_Point.GetComponent<Rigidbody>();
+            line.positionCount = J.Count + 1;
         }
-        J[J.Count - 1].GetComponent<HingeJoint>().connectedBody = JointPoint.GetComponent<Rigidbody>();
-        line.positionCount = J.Count + 1;
-
     }
 }

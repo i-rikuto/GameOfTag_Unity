@@ -8,21 +8,32 @@ public class Joint_Ray : MonoBehaviour
     public GameObject Front,RayEnd,RayError;
     public Material RayMaterial;
     [SerializeField] LineRenderer line;
+    [SerializeField] JointCreate jointCreate;
     public float rotationSpeed = 1000.0f;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000.0f))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000.0f))
-            {
-                Front.transform.LookAt(hit.point);
-                Debug.Log(hit.collider.gameObject.transform.position);
-            }
+            Front.transform.LookAt(hit.point);
+            //Debug.Log(hit.collider.gameObject.transform.position);
         }
         
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (RayMaterial.color == Color.blue)
+            {
+                jointCreate.Conect(RayEnd);
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            jointCreate.Conect_Clear();
+        }
+
         float step = rotationSpeed * Time.deltaTime;
         Quaternion rotation = Quaternion.RotateTowards(this.transform.rotation, Front.transform.rotation, step);
         this.transform.rotation = rotation;
